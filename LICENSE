@@ -1,6 +1,8 @@
 MIT License
 
-Copyright (c) 2026 OneLuaPro
+lsqlite3 - Copyright (c) 2002-2016 Tiago Dionizio, Doug Currie
+           Copyright (c) 2026 The OneLuaPro project authors
+sqlean   - Copyright (c) 2021+ Anton Zhiyanov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +21,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+SQLite Copyright Notice - The SQLite engine included in this project is 
+dedicated to the public domain by the authors (https://www.sqlite.org). 
+"May you do good and not evil. May you find forgiveness for yourself and 
+forgive others. May you share freely, never taking more than you give."
