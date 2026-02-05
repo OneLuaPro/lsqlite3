@@ -140,3 +140,7 @@ set_target_properties(lsqlite3 PROPERTIES
 # ------------------------------------------------------------------------------
 # Install
 install(TARGETS lsqlite3 RUNTIME DESTINATION ${INSTALL_TOP_CDIR})
+install(DIRECTORY doc/ DESTINATION ${INSTALL_DOCDIR})	# "/" omits leading dir
+install(DIRECTORY examples DESTINATION ${INSTALL_DOCDIR})
+install(DIRECTORY spec DESTINATION ${INSTALL_DOCDIR}/test/busted)
+install(DIRECTORY test/ DESTINATION ${INSTALL_DOCDIR}/test/lunit)

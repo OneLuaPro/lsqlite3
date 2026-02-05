@@ -1,9 +1,30 @@
 -- -*- coding: utf-8 -*-
+--[[
+ * Copyright (c) 2026 The OneLuaPro project authors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+]]
 local sqlite3 = require("lsqlite3")
 local openssl = require("openssl")
 local lfs = require("lfs")
 
-describe("lsqlite3 with SQLean and OpenSSL cross-check", function()
+describe("lsqlite3 with SQLean cross-check", function()
   local db
 
   before_each(function()
@@ -153,26 +174,48 @@ describe("lsqlite3 with SQLean and OpenSSL cross-check", function()
 	end
   end)
 
+  it("should match file size between SQLean and LFS using random binary content", function()
+	local tmpdir = os.getenv("TEMP") or "."
+	local filename = "busted_size_test.tmp"
+	local fullpath = tmpdir .. "\\" .. filename
+    
+	-- Generate random length between 512 and 4096 bytes
+	local random_length = math.random(512, 4096)
+	local bytes = {}
+	for i = 1, random_length do
+	   bytes[i] = string.char(math.random(0, 255))
+	end
+	local random_content = table.concat(bytes)
 
-  it("should match file size between SQLean and LFS", function()
-	local filename = "LICENSE" -- Diese Datei ist laut deinem Log da
-	local lfs_size = lfs.attributes(filename, "size")
+	-- 1. Create file with random binary content
+	local f = assert(io.open(fullpath, "wb"))
+	f:write(random_content)
+	f:close()
+
+	-- 2. Retrieve size via LuaFileSystem
+	local lfs_size = lfs.attributes(fullpath, "size")
     
-	-- Wir suchen nach dem Muster './FILENAME'
-	local stmt = db:prepare("SELECT size FROM fileio_ls('.') WHERE name = ?")
-    
+	-- 3. Retrieve size via SQLean fileio_ls
+	-- Use LIKE to remain agnostic of path separators (./ vs \)
+	local stmt = db:prepare("SELECT size FROM fileio_ls(?) WHERE name LIKE ?")
 	if not stmt then error(db:errmsg()) end
     
-	-- Wir binden den Namen inklusive des Präfixes, den SQLean nutzt
-	stmt:bind_values("./" .. filename)
-	
+	-- Search in temp directory for our specific filename
+	stmt:bind_values(tmpdir, "%" .. filename)
+    
+	local sqlean_size = nil
 	if stmt:step() == sqlite3.ROW then
-	   local sqlean_size = stmt:get_named_values().size
-	   assert.are.equal(lfs_size, tonumber(sqlean_size))
-	else
-	   error("Datei './" .. filename .. "' wurde in fileio_ls nicht gefunden.")
+	   sqlean_size = stmt:get_named_values().size
 	end
 	stmt:finalize()
-  end)
 
+	-- 4. Cleanup temporary file
+	os.remove(fullpath)
+
+	-- 5. Final assertions
+	assert.is_not_nil(sqlean_size, "SQLean failed to locate the file in the temp directory")
+	assert.are.equal(lfs_size, tonumber(sqlean_size))
+	assert.are.equal(random_length, tonumber(sqlean_size))
+  end)
+  
 end)
