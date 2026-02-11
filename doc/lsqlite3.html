@@ -6,28 +6,43 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-e3344c4a1dedf0f35403ef8fdc4b7c8df5048cc5cd0f85a4'; style-src 'self' 'unsafe-inline'; img-src * data:">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LuaSQLite3: Documentation</title>
-<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="https://lua.sqlite.org/home/timeline.rss">
+<!-- <link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="https://lua.sqlite.org/home/timeline.rss"> -->
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body class="doc rpage-doc cpage-doc">
 <header>
   <div class="title"><h1>LuaSQLite3</h1>Documentation</div>
-  <div class="status">
-    <a href='https://lua.sqlite.org/home/login'>Login</a>
+  <!-- <div class="status"> -->
+  <!--   <a href='https://lua.sqlite.org/home/login'>Login</a> -->
 
-  </div>
+  <!-- </div> -->
 </header>
-<nav class="mainmenu" title="Main Menu">
-  <a id='hbbtn' href='https://lua.sqlite.org/home/sitemap' aria-label='Site Map'>&#9776;</a><a href='https://lua.sqlite.org/home/home' class=''>Home</a>
-<a href='https://lua.sqlite.org/home/timeline' class=''>Timeline</a>
-<a href='https://lua.sqlite.org/home/brlist' class='wideonly'>Branches</a>
-<a href='https://lua.sqlite.org/home/taglist' class='wideonly'>Tags</a>
-<a href='https://lua.sqlite.org/home/ticket' class='wideonly'>Tickets</a>
-<a href='https://lua.sqlite.org/home/wiki' class='wideonly'>Wiki</a>
-<a href='https://lua.sqlite.org/home/login' class='wideonly'>Login</a>
+<!-- <nav class="mainmenu" title="Main Menu"> -->
+<!--   <a id='hbbtn' href='https://lua.sqlite.org/home/sitemap' aria-label='Site Map'>&#9776;</a><a href='https://lua.sqlite.org/home/home' class=''>Home</a> -->
+<!-- <a href='https://lua.sqlite.org/home/timeline' class=''>Timeline</a> -->
+<!-- <a href='https://lua.sqlite.org/home/brlist' class='wideonly'>Branches</a> -->
+<!-- <a href='https://lua.sqlite.org/home/taglist' class='wideonly'>Tags</a> -->
+<!-- <a href='https://lua.sqlite.org/home/ticket' class='wideonly'>Tickets</a> -->
+<!-- <a href='https://lua.sqlite.org/home/wiki' class='wideonly'>Wiki</a> -->
+<!-- <a href='https://lua.sqlite.org/home/login' class='wideonly'>Login</a> -->
 
-</nav>
-<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<!-- </nav> -->
+<!-- <nav id="hbdrop" class='hbdrop' title="sitemap"></nav> -->
+<hr>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 15px 20px; font-family: sans-serif; line-height: 1.5;">
+    <h3 style="margin-top: 0; color: #0b5da7; font-size: 1.0em;">🚀 Integrated Sqlean Extensions</h3>
+    <p style="margin-bottom: 0;font-size: 0.8em;">
+        This build of <strong>lsqlite3</strong> comes with the <strong>sqlean</strong> extension suite 
+        already baked in. All additional functions (math, crypto, text, fuzzy, etc.) are 
+        <strong>automatically available</strong> — no need to call <code>load_extension()</code>.
+    </p>
+    <p style="margin-top: 8px;font-size: 0.8em;">
+        View the <a href="../sqlean/sqlean.html" style="font-weight: bold; color: #0b5da7; text-decoration: underline;">SQLite Database Interface Extras</a> 
+        for a full list of available commands.
+    </p>
+</div>
+
+
 <div class="content"><span id="debugMsg"></span>
 
 <div name="index">
@@ -35,118 +50,118 @@
 
 <ul>
 
-	<li><a href="lsqlite3.wiki.html#name">NAME</a></li>
-	<li><a href="lsqlite3.wiki.html#overview">OVERVIEW</a></li>
-	<li><a href="lsqlite3.wiki.html#download">DOWNLOAD</a></li>
-	<li><a href="lsqlite3.wiki.html#installation">INSTALLATION</a></li>
-	<li><a href="lsqlite3.wiki.html#examples">EXAMPLES</a></li>
-	<li><a href="lsqlite3.wiki.html#verification_tests">VERIFICATION TESTS</a></li>
-	<li><a href="lsqlite3.wiki.html#reference">REFERENCE</a></li>
-	<li><a href="lsqlite3.wiki.html#sqlite3_functions">SQLite3 functions</a></li>
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#overview">OVERVIEW</a></li>
+	<li><a href="#download">DOWNLOAD</a></li>
+	<li><a href="#installation">INSTALLATION</a></li>
+	<li><a href="#examples">EXAMPLES</a></li>
+	<li><a href="#verification_tests">VERIFICATION TESTS</a></li>
+	<li><a href="#reference">REFERENCE</a></li>
+	<li><a href="#sqlite3_functions">SQLite3 functions</a></li>
 	<ul>
 
-		<li><a href="lsqlite3.wiki.html#sqlite3_complete">sqlite3.complete</a></li>
-        <li><a href="lsqlite3.wiki.html#sqlite3_lversion">sqlite3.lversion</a></li>
-		<li><a href="lsqlite3.wiki.html#sqlite3_open">sqlite3.open</a></li>
-        <li><a href="lsqlite3.wiki.html#sqlite3_open_memory">sqlite3.open_memory</a></li>
-        <li><a href="lsqlite3.wiki.html#sqlite3_open_ptr">sqlite3.open_ptr</a></li>
-        <li><a href="lsqlite3.wiki.html#sqlite3_backup_init">sqlite3.backup_init</a></li>
-		<li><a href="lsqlite3.wiki.html#sqlite3_temp_directory">sqlite3.temp_directory</a></li>
-		<li><a href="lsqlite3.wiki.html#sqlite3_version">sqlite3.version</a></li>
+		<li><a href="#sqlite3_complete">sqlite3.complete</a></li>
+        <li><a href="#sqlite3_lversion">sqlite3.lversion</a></li>
+		<li><a href="#sqlite3_open">sqlite3.open</a></li>
+        <li><a href="#sqlite3_open_memory">sqlite3.open_memory</a></li>
+        <li><a href="#sqlite3_open_ptr">sqlite3.open_ptr</a></li>
+        <li><a href="#sqlite3_backup_init">sqlite3.backup_init</a></li>
+		<li><a href="#sqlite3_temp_directory">sqlite3.temp_directory</a></li>
+		<li><a href="#sqlite3_version">sqlite3.version</a></li>
 	</ul>
 
-	<li><a href="lsqlite3.wiki.html#database_methods">Database methods</a></li>
+	<li><a href="#database_methods">Database methods</a></li>
 	<ul>
 
-		<li><a href="lsqlite3.wiki.html#db_busy_handler">db:busy_handler</a></li>
-		<li><a href="lsqlite3.wiki.html#db_busy_timeout">db:busy_timeout</a></li>
-		<li><a href="lsqlite3.wiki.html#db_changes">db:changes</a></li>
-		<li><a href="lsqlite3.wiki.html#db_close">db:close</a></li>
-		<li><a href="lsqlite3.wiki.html#db_close_vm">db:close_vm</a></li>
-        <li><a href="lsqlite3.wiki.html#db_get_ptr">db:get_ptr</a></li>
-        <li><a href="lsqlite3.wiki.html#db_commit_hook">db:commit_hook</a></li>
-		<li><a href="lsqlite3.wiki.html#db_create_aggregate">db:create_aggregate</a></li>
-		<li><a href="lsqlite3.wiki.html#db_create_collation">db:create_collation</a></li>
-		<li><a href="lsqlite3.wiki.html#db_create_function">db:create_function</a></li>
-		<li><a href="lsqlite3.wiki.html#db_errcode">db:errcode</a></li>
-		<li><a href="lsqlite3.wiki.html#db_errmsg">db:errmsg</a></li>
-		<li><a href="lsqlite3.wiki.html#db_exec">db:exec</a></li>
-        <li><a href="lsqlite3.wiki.html#db_interrupt">db:interrupt</a></li>
-        <li><a href="lsqlite3.wiki.html#db_db_filename">db:db_filename</a></li>
-		<li><a href="lsqlite3.wiki.html#db_isopen">db:isopen</a></li>
-		<li><a href="lsqlite3.wiki.html#db_last_insert_rowid">db:last_insert_rowid</a></li>
-		<li><a href="lsqlite3.wiki.html#db_load_extension">db:load_extension</a></li>
-		<li><a href="lsqlite3.wiki.html#db_nrows">db:nrows</a></li>
-		<li><a href="lsqlite3.wiki.html#db_prepare">db:prepare</a></li>
-		<li><a href="lsqlite3.wiki.html#db_progress_handler">db:progress_handler</a></li>
-        <li><a href="lsqlite3.wiki.html#db_rollback_hook">db:rollback_hook</a></li>
-		<li><a href="lsqlite3.wiki.html#db_rows">db:rows</a></li>
-		<li><a href="lsqlite3.wiki.html#db_total_changes">db:total_changes</a></li>
-        <li><a href="lsqlite3.wiki.html#db_trace">db:trace</a></li>
-        <li><a href="lsqlite3.wiki.html#db_update_hook">db:update_hook</a></li>
-		<li><a href="lsqlite3.wiki.html#db_urows">db:urows</a></li>
+		<li><a href="#db_busy_handler">db:busy_handler</a></li>
+		<li><a href="#db_busy_timeout">db:busy_timeout</a></li>
+		<li><a href="#db_changes">db:changes</a></li>
+		<li><a href="#db_close">db:close</a></li>
+		<li><a href="#db_close_vm">db:close_vm</a></li>
+        <li><a href="#db_get_ptr">db:get_ptr</a></li>
+        <li><a href="#db_commit_hook">db:commit_hook</a></li>
+		<li><a href="#db_create_aggregate">db:create_aggregate</a></li>
+		<li><a href="#db_create_collation">db:create_collation</a></li>
+		<li><a href="#db_create_function">db:create_function</a></li>
+		<li><a href="#db_errcode">db:errcode</a></li>
+		<li><a href="#db_errmsg">db:errmsg</a></li>
+		<li><a href="#db_exec">db:exec</a></li>
+        <li><a href="#db_interrupt">db:interrupt</a></li>
+        <li><a href="#db_db_filename">db:db_filename</a></li>
+		<li><a href="#db_isopen">db:isopen</a></li>
+		<li><a href="#db_last_insert_rowid">db:last_insert_rowid</a></li>
+		<li><a href="#db_load_extension">db:load_extension</a></li>
+		<li><a href="#db_nrows">db:nrows</a></li>
+		<li><a href="#db_prepare">db:prepare</a></li>
+		<li><a href="#db_progress_handler">db:progress_handler</a></li>
+        <li><a href="#db_rollback_hook">db:rollback_hook</a></li>
+		<li><a href="#db_rows">db:rows</a></li>
+		<li><a href="#db_total_changes">db:total_changes</a></li>
+        <li><a href="#db_trace">db:trace</a></li>
+        <li><a href="#db_update_hook">db:update_hook</a></li>
+		<li><a href="#db_urows">db:urows</a></li>
 	</ul>
 
-	<li><a href="lsqlite3.wiki.html#methods_for_prepared_statements">Methods for prepared statements</a></li>
+	<li><a href="#methods_for_prepared_statements">Methods for prepared statements</a></li>
 	<ul>
 
-		<li><a href="lsqlite3.wiki.html#stmt_bind">stmt:bind</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_bind_blob">stmt:bind_blob</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_bind_names">stmt:bind_names</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_bind_parameter_count">stmt:bind_parameter_count</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_bind_parameter_name">stmt:bind_parameter_name</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_bind_values">stmt:bind_values</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_columns">stmt:columns</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_finalize">stmt:finalize</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_name">stmt:get_name</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_named_types">stmt:get_named_types</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_named_values">stmt:get_named_values</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_names">stmt:get_names</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_type">stmt:get_type</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_types">stmt:get_types</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_unames">stmt:get_unames</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_utypes">stmt:get_utypes</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_uvalues">stmt:get_uvalues</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_value">stmt:get_value</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_get_values">stmt:get_values</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_isopen">stmt:isopen</a></li>
-        <li><a href="lsqlite3.wiki.html#stmt_last_insert_rowid">stmt:last_insert_rowid</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_nrows">stmt:nrows</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_reset">stmt:reset</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_rows">stmt:rows</a></li>
-		<li><a href="lsqlite3.wiki.html#stmt_step">stmt:step</a></li>
-        <li><a href="lsqlite3.wiki.html#stmt_urows">stmt:urows</a></li>
+		<li><a href="#stmt_bind">stmt:bind</a></li>
+		<li><a href="#stmt_bind_blob">stmt:bind_blob</a></li>
+		<li><a href="#stmt_bind_names">stmt:bind_names</a></li>
+		<li><a href="#stmt_bind_parameter_count">stmt:bind_parameter_count</a></li>
+		<li><a href="#stmt_bind_parameter_name">stmt:bind_parameter_name</a></li>
+		<li><a href="#stmt_bind_values">stmt:bind_values</a></li>
+		<li><a href="#stmt_columns">stmt:columns</a></li>
+		<li><a href="#stmt_finalize">stmt:finalize</a></li>
+		<li><a href="#stmt_get_name">stmt:get_name</a></li>
+		<li><a href="#stmt_get_named_types">stmt:get_named_types</a></li>
+		<li><a href="#stmt_get_named_values">stmt:get_named_values</a></li>
+		<li><a href="#stmt_get_names">stmt:get_names</a></li>
+		<li><a href="#stmt_get_type">stmt:get_type</a></li>
+		<li><a href="#stmt_get_types">stmt:get_types</a></li>
+		<li><a href="#stmt_get_unames">stmt:get_unames</a></li>
+		<li><a href="#stmt_get_utypes">stmt:get_utypes</a></li>
+		<li><a href="#stmt_get_uvalues">stmt:get_uvalues</a></li>
+		<li><a href="#stmt_get_value">stmt:get_value</a></li>
+		<li><a href="#stmt_get_values">stmt:get_values</a></li>
+		<li><a href="#stmt_isopen">stmt:isopen</a></li>
+        <li><a href="#stmt_last_insert_rowid">stmt:last_insert_rowid</a></li>
+		<li><a href="#stmt_nrows">stmt:nrows</a></li>
+		<li><a href="#stmt_reset">stmt:reset</a></li>
+		<li><a href="#stmt_rows">stmt:rows</a></li>
+		<li><a href="#stmt_step">stmt:step</a></li>
+        <li><a href="#stmt_urows">stmt:urows</a></li>
 	</ul>
 
-    <li><a href="lsqlite3.wiki.html#methods_for_callback_contexts">Methods for callback contexts</a></li>
+    <li><a href="#methods_for_callback_contexts">Methods for callback contexts</a></li>
     <ul>
 
-        <li><a href="lsqlite3.wiki.html#context_aggregate_count">context:aggregate_count</a></li>
-        <li><a href="lsqlite3.wiki.html#context_get_aggregate_data">context:get_aggregate_data</a></li>
-        <li><a href="lsqlite3.wiki.html#context_set_aggregate_data">context:set_aggregate_data</a></li>
-        <li><a href="lsqlite3.wiki.html#context_result">context:result</a></li>
-        <li><a href="lsqlite3.wiki.html#context_result_null">context:result_null</a></li>
-        <li><a href="lsqlite3.wiki.html#context_result_number">context:result_number</a></li>
-        <li><a href="lsqlite3.wiki.html#context_result_int">context:result_int</a></li>
-        <li><a href="lsqlite3.wiki.html#context_result_text">context:result_text</a></li>
-        <li><a href="lsqlite3.wiki.html#context_result_blob">context:result_blob</a></li>
-        <li><a href="lsqlite3.wiki.html#context_result_error">context:result_error</a></li>
-        <li><a href="lsqlite3.wiki.html#context_user_data">context:user_data</a></li>
+        <li><a href="#context_aggregate_count">context:aggregate_count</a></li>
+        <li><a href="#context_get_aggregate_data">context:get_aggregate_data</a></li>
+        <li><a href="#context_set_aggregate_data">context:set_aggregate_data</a></li>
+        <li><a href="#context_result">context:result</a></li>
+        <li><a href="#context_result_null">context:result_null</a></li>
+        <li><a href="#context_result_number">context:result_number</a></li>
+        <li><a href="#context_result_int">context:result_int</a></li>
+        <li><a href="#context_result_text">context:result_text</a></li>
+        <li><a href="#context_result_blob">context:result_blob</a></li>
+        <li><a href="#context_result_error">context:result_error</a></li>
+        <li><a href="#context_user_data">context:user_data</a></li>
     </ul>
 
-    <li><a href="lsqlite3.wiki.html#methods_for_online_backup">Methods for Online Backup</a></li>
+    <li><a href="#methods_for_online_backup">Methods for Online Backup</a></li>
     <ul>
 
-        <li><a href="lsqlite3.wiki.html#bu_step">backup:step</a></li>
-        <li><a href="lsqlite3.wiki.html#bu_remaining">backup:remaining</a></li>
-        <li><a href="lsqlite3.wiki.html#bu_pagecount">backup:pagecount</a></li>
-        <li><a href="lsqlite3.wiki.html#bu_finish">backup:finish</a></li>
+        <li><a href="#bu_step">backup:step</a></li>
+        <li><a href="#bu_remaining">backup:remaining</a></li>
+        <li><a href="#bu_pagecount">backup:pagecount</a></li>
+        <li><a href="#bu_finish">backup:finish</a></li>
     </ul>
 
-	<li><a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a></li>
-	<li><a href="lsqlite3.wiki.html#version">VERSION</a></li>
-	<li><a href="lsqlite3.wiki.html#credits">CREDITS</a></li>
-	<li><a href="lsqlite3.wiki.html#license">LICENSE</a></li>
+	<li><a href="#numerical_error_and_result_codes">Numerical error and result codes</a></li>
+	<li><a href="#version">VERSION</a></li>
+	<li><a href="#credits">CREDITS</a></li>
+	<li><a href="#license">LICENSE</a></li>
 </ul>
 
 <hr name="index" />
@@ -156,7 +171,7 @@
 </p>
 <hr />
 <h1><a name="name">NAME</a></h1>
-<p><strong>LuaSQLite 3</strong> - a Lua 5.1 to 5.3 wrapper for the SQLite3 library</p>
+<p><strong>LuaSQLite 3</strong> - a Lua 5.x wrapper for the SQLite3 library</p>
 <p>
 </p>
 <hr />
@@ -248,7 +263,7 @@ statements and false otherwise.</p>
 <p>Opens (or creates if it does not exist) an SQLite database with name
 <code>filename</code> and returns its handle as userdata (the returned object 
 should be used for all further method calls in connection with this 
-specific database, see <a href="lsqlite3.wiki.html#database_methods">Database methods</a>). Example:</p>
+specific database, see <a href="#database_methods">Database methods</a>). Example:</p>
 <pre>
         myDB=sqlite3.open('MyDatabase.sqlite3')  -- open
         -- do some database calls...
@@ -282,7 +297,7 @@ never stored on disk.)</p>
 <pre>
         sqlite3.open_ptr(db_ptr)</pre>
 <p>Opens the SQLite database corresponding to the light userdata <code>db_ptr</code> and returns 
-its handle as userdata. Use <a href="lsqlite3.wiki.html#db_get_ptr"><code>db:get_ptr</code></a> to get 
+its handle as userdata. Use <a href="#db_get_ptr"><code>db:get_ptr</code></a> to get 
 a <code>db_ptr</code> for an open database.</p>
 <p>
 </p>
@@ -300,8 +315,8 @@ a read or read-write transaction open on the target database.
 </p>
 <p>If an error occurs within <code>sqlite3.backup_init</code>, then NULL is returned, and an 
 error code and error message are stored in <code>target_db</code>. The error code and message 
-for the failed call can be retrieved using the <a href="lsqlite3.wiki.html#db_errcode"><code>db:errcode</code></a>, 
-or <a href="lsqlite3.wiki.html#db_errmsg"><code>db:errmsg</code></a>.</p>
+for the failed call can be retrieved using the <a href="#db_errcode"><code>db:errcode</code></a>, 
+or <a href="#db_errmsg"><code>db:errmsg</code></a>.</p>
 <p>
 </p>
 <h2><a name="sqlite3_temp_directory">sqlite3.temp_directory</a></h2>
@@ -327,8 +342,8 @@ the function simply returns the current temporary directory.</p>
 </p>
 <hr />
 <h1><a name="database_methods">Database methods</a></h1>
-<p>After opening a database with <a href="lsqlite3.wiki.html#sqlite3_open"><code>sqlite3.open()</code></a> or 
-<a href="lsqlite3.wiki.html#sqlite3_open_memory"><code>sqlite3.open_memory()</code></a>
+<p>After opening a database with <a href="#sqlite3_open"><code>sqlite3.open()</code></a> or 
+<a href="#sqlite3_open_memory"><code>sqlite3.open_memory()</code></a>
 the returned database object should be used for all further method calls
 in connection with that database. An open database object supports the
 following methods.</p>
@@ -352,7 +367,7 @@ documentation for important hints about writing busy handlers.)</p>
         db:busy_timeout(t)</pre>
 <p>Sets a busy handler that waits for <code>t</code> milliseconds if a transaction 
 cannot proceed. Calling this function will remove any busy handler set 
-by <a href="lsqlite3.wiki.html#db_busy_handler"><code>db:busy_handler()</code></a>; calling it with an argument 
+by <a href="#db_busy_handler"><code>db:busy_handler()</code></a>; calling it with an argument 
 less than or equal to 0 will turn off all busy handlers.</p>
 <p>
 </p>
@@ -363,7 +378,7 @@ less than or equal to 0 will turn off all busy handlers.</p>
 inserted or deleted) by the most recent SQL statement. Only changes that
 are directly specified by INSERT, UPDATE, or DELETE statements are
 counted. Auxiliary changes caused by triggers are not counted. Use
-<a href="lsqlite3.wiki.html#db_total_changes"><code>db:total_changes()</code></a> to find the total number of 
+<a href="#db_total_changes"><code>db:total_changes()</code></a> to find the total number of 
 changes.</p>
 <p>
 </p>
@@ -371,10 +386,10 @@ changes.</p>
 <pre>
         db:close()</pre>
 <p>Closes a database. All SQL statements prepared using 
-<a href="lsqlite3.wiki.html#db_prepare"><code>db:prepare()</code></a> should
+<a href="#db_prepare"><code>db:prepare()</code></a> should
 have been finalized before this function is called. The function returns
 <code>sqlite3.OK</code> on success or else a numerical error code (see the list of
-<a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
+<a href="#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
 <p>
 </p>
 <h2><a name="db_close_vm">db:close_vm</a></h2>
@@ -389,7 +404,7 @@ This function returns nothing.</p>
 <pre>
         db:get_ptr()</pre>
 <p>Returns a lightuserdata corresponding to the open <code>db</code>. Use with 
-<a href="lsqlite3.wiki.html#sqlite3_open_ptr"><code>sqlite3.open_ptr</code></a> to pass a database connection
+<a href="#sqlite3_open_ptr"><code>sqlite3.open_ptr</code></a> to pass a database connection
 between threads. (When using lsqlite3 in a multithreaded environment, each thread has a separate 
 Lua environment; full userdata structures can't be passed from one thread to another, but this 
 is possible with lightuserdata.)</p>
@@ -402,7 +417,7 @@ is possible with lightuserdata.)</p>
 that is invoked by SQLite3 whenever a transaction is commited. This callback receives one argument: 
 the <code>udata</code> argument used when the callback was installed. If <code>func</code> returns <code>false</code>
 or <code>nil</code> the COMMIT is allowed to prodeed, otherwise the COMMIT is converted to a ROLLBACK.</p> 
-<p>See: <a href="lsqlite3.wiki.html#db_rollback_hook">db:rollback_hook</a> and <a href="lsqlite3.wiki.html#db_update_hook">db:update_hook</a></p>
+<p>See: <a href="#db_rollback_hook">db:rollback_hook</a> and <a href="#db_update_hook">db:update_hook</a></p>
 <p>
 </p>
 <h2><a name="db_create_aggregate">db:create_aggregate</a></h2>
@@ -413,7 +428,7 @@ an operation over all rows in a query. <code>name</code> is a string with the na
 of the aggregate function as given in an SQL statement; <code>nargs</code> is the 
 number of arguments this call will provide. <code>step</code> is the actual Lua 
 function that gets called once for every row; it should accept a function 
-context (see <a href="lsqlite3.wiki.html#methods_for_callback_contexts">Methods for callback contexts</a>) plus the same number of
+context (see <a href="#methods_for_callback_contexts">Methods for callback contexts</a>) plus the same number of
 parameters as given in <code>nargs</code>. <code>final</code> is a function that is called 
 once after all rows have been processed; it receives one argument, the
 function context. If provided, <code>userdata</code> can be any Lua value and would be returned
@@ -480,7 +495,7 @@ by SQLite3 once for every row in a query. <code>name</code> is a string with the
 name of the callback function as given in an SQL statement; <code>nargs</code> is 
 the number of arguments this call will provide. <code>func</code> is the actual Lua
 function that gets called once for every row; it should accept a
-function context (see <a href="lsqlite3.wiki.html#methods_for_callback_contexts">Methods for callback contexts</a>) plus the same
+function context (see <a href="#methods_for_callback_contexts">Methods for callback contexts</a>) plus the same
 number of parameters as given in nargs. If provided, <code>userdata</code> can be any Lua value and would be returned
 by the <code>context:user_data()</code> method. Here is an example:</p>
 <pre>
@@ -518,7 +533,7 @@ enabled as a side effect of calling <code>db:load_extension</code> with a
         db:error_code()</pre>
 <p>Returns the numerical result code (or extended result code) for the most
 recent failed call associated with database db. See
-<a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a> for details.</p>
+<a href="#numerical_error_and_result_codes">Numerical error and result codes</a> for details.</p>
 <p>
 </p>
 <h2><a name="db_errmsg">db:errmsg</a></h2>
@@ -536,7 +551,7 @@ failed call associated with database db.</p>
 <p>Compiles and executes the SQL statement(s) given in string <code>sql</code>. The
 statements are simply executed one after the other and not stored. The
 function returns <code>sqlite3.OK</code> on success or else a numerical error code
-(see <a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
+(see <a href="#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
 <p>If one or more of the SQL statements are queries, then the callback
 function specified in <code>func</code> is invoked once for each row of the query
 result (if <code>func</code> is nil, no callback is invoked). The callback receives
@@ -634,15 +649,15 @@ Here is an example:</p>
 <p>This function compiles the SQL statement in string <code>sql</code> into an internal
 representation and returns this as userdata. The returned object should
 be used for all further method calls in connection with this specific
-SQL statement (see <a href="lsqlite3.wiki.html#methods_for_prepared_statements">Methods for prepared statements</a>).</p>
+SQL statement (see <a href="#methods_for_prepared_statements">Methods for prepared statements</a>).</p>
 <p>
 </p>
 <h2><a name="db_progress_handler">db:progress_handler</a></h2>
 <pre>
         db:progress_handler(n,func,udata)</pre>
 <p>This function installs a callback function <code>func</code> that is invoked
-periodically during long-running calls to <a href="lsqlite3.wiki.html#db_exec"><code>db:exec()</code></a>
-or <a href="lsqlite3.wiki.html#stmt_step"><code>stmt:step()</code></a>. The
+periodically during long-running calls to <a href="#db_exec"><code>db:exec()</code></a>
+or <a href="#stmt_step"><code>stmt:step()</code></a>. The
 progress callback is invoked once for every <code>n</code> internal operations, 
 where <code>n</code> is the first argument to this function. <code>udata</code> is passed to 
 the progress callback function each time it is invoked. If a call to
@@ -665,7 +680,7 @@ queries.</p>
 <p>This function installs a rollback_hook callback handler. <code>func</code> is a Lua function 
 that is invoked by SQLite3 whenever a transaction is rolled back. This callback receives one argument: 
 the <code>udata</code> argument used when the callback was installed.</p> 
-<p>See: <a href="lsqlite3.wiki.html#db_commit_hook">db:commit_hook</a> and <a href="lsqlite3.wiki.html#db_update_hook">db:update_hook</a></p>
+<p>See: <a href="#db_commit_hook">db:commit_hook</a> and <a href="#db_update_hook">db:update_hook</a></p>
 <p>
 </p>
 <h2><a name="db_rows">db:rows</a></h2>
@@ -701,7 +716,7 @@ modified by INSERT, UPDATE or DELETE statements since the database was
 opened. This includes UPDATE, INSERT and DELETE statements executed as
 part of trigger programs. All changes are counted as soon as the
 statement that produces them is completed by calling either 
-<a href="lsqlite3.wiki.html#stmt_reset"><code>stmt:reset()</code></a> or <a href="lsqlite3.wiki.html#stmt_finalize"><code>stmt:finalize()</code></a>.</p>
+<a href="#stmt_reset"><code>stmt:reset()</code></a> or <a href="#stmt_finalize"><code>stmt:finalize()</code></a>.</p>
 <p>
 </p>
 <h2><a name="db_trace">db:trace</a></h2>
@@ -725,7 +740,7 @@ integer indicating the operation that caused the callback to be invoked (one of 
 <code>sqlite3.INSERT</code>, or <code>sqlite3.DELETE</code>). The third and fourth arguments 
 are the database and table name containing the affected row. The final callback parameter is 
 the rowid of the row. In the case of an update, this is the rowid after the update takes place.</p>
-<p>See: <a href="lsqlite3.wiki.html#db_commit_hook">db:commit_hook</a> and <a href="lsqlite3.wiki.html#db_rollback_hook">db:rollback_hook</a></p>
+<p>See: <a href="#db_commit_hook">db:commit_hook</a> and <a href="#db_rollback_hook">db:rollback_hook</a></p>
 <p>
 </p>
 <h2><a name="db_urows">db:urows</a></h2>
@@ -752,7 +767,7 @@ Here is an example:</p>
 </p>
 <hr />
 <h1><a name="methods_for_prepared_statements">Methods for prepared statements</a></h1>
-<p>After creating a prepared statement with <a href="lsqlite3.wiki.html#db_prepare"><code>db:prepare()</code></a> 
+<p>After creating a prepared statement with <a href="#db_prepare"><code>db:prepare()</code></a> 
 the returned statement object should be used for all further calls in 
 connection with that statement. Statement objects support the following 
 methods.</p>
@@ -768,7 +783,7 @@ depending on its subtype using <code>lua_isinteger</code>. If <code>value</code>
 boolean then it is bound as 0 for <code>false</code> or 1 for <code>true</code>.
 If <code>value</code> is nil or missing, any previous binding is removed. The function
 returns <code>sqlite3.OK</code> on success or else a numerical error code (see
-<a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
+<a href="#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
 <p>
 </p>
 <h2><a name="stmt_bind_blob">stmt:bind_blob</a></h2>
@@ -776,7 +791,7 @@ returns <code>sqlite3.OK</code> on success or else a numerical error code (see
         stmt:bind_blob(n,blob)</pre>
 <p>Binds string <code>blob</code> (which can be a binary string) as a blob to 
 statement parameter <code>n</code>. The function returns <code>sqlite3.OK</code> on success 
-or else a numerical error code (see <a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
+or else a numerical error code (see <a href="#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
 <p>
 </p>
 <h2><a name="stmt_bind_names">stmt:bind_names</a></h2>
@@ -788,7 +803,7 @@ then this function looks for appropriately named fields in <code>nametable</code
 if the statement parameters are
 not named, it looks for numerical fields 1 to the number of statement
 parameters. The function returns <code>sqlite3.OK</code> on success or else a
-numerical error code (see <a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
+numerical error code (see <a href="#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
 <p>
 </p>
 <h2><a name="stmt_bind_parameter_count">stmt:bind_parameter_count</a></h2>
@@ -819,7 +834,7 @@ an index of 1.
 If the value <code>n</code> is out of range or if the <code>n</code>-th parameter is
 nameless, then nil is returned. The function returns <code>sqlite3.OK</code> on
 success or else a numerical error code (see
-<a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a>)</p>
+<a href="#numerical_error_and_result_codes">Numerical error and result codes</a>)</p>
 <p>
 </p>
 <h2><a name="stmt_bind_values">stmt:bind_values</a></h2>
@@ -827,7 +842,7 @@ success or else a numerical error code (see
         stmt:bind_values(value1,value2,...,valueN)</pre>
 <p>Binds the given values to statement parameters. The function returns
 <code>sqlite3.OK</code> on success or else a numerical error code (see
-<a href="lsqlite3.wiki.html#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
+<a href="#numerical_error_and_result_codes">Numerical error and result codes</a>).</p>
 <p>
 </p>
 <h2><a name="stmt_columns">stmt:columns</a></h2>
@@ -935,7 +950,7 @@ result set returned by statement stmt.</p>
 <p>Returns an function that iterates over the names and values of the
 result set of statement <code>stmt</code>. Each iteration returns a table with the
 names and values for the current row.
-This is the prepared statement equivalent of <a href="lsqlite3.wiki.html#db_nrows"><code>db:nrows()</code></a>.</p>
+This is the prepared statement equivalent of <a href="#db_nrows"><code>db:nrows()</code></a>.</p>
 <p>
 </p>
 <h2><a name="stmt_reset">stmt:reset</a></h2>
@@ -952,7 +967,7 @@ the <code>stmt:bind*()</code> functions retain their values.</p>
 <p>Returns an function that iterates over the values of the result set of
 statement stmt. Each iteration returns an array with the values for the
 current row.
-This is the prepared statement equivalent of <a href="lsqlite3.wiki.html#db_rows"><code>db:rows()</code></a>.</p>
+This is the prepared statement equivalent of <a href="#db_rows"><code>db:rows()</code></a>.</p>
 <p>
 </p>
 <h2><a name="stmt_step">stmt:step</a></h2>
@@ -970,27 +985,27 @@ before continuing.</p>
 </li>
 <li>
 <p><code>sqlite3.DONE</code>: the statement has finished executing successfully.
-<a href="lsqlite3.wiki.html#stmt_step"><code>stmt:step()</code></a> should not be called again on this statement 
-without first calling <a href="lsqlite3.wiki.html#stmt_reset"><code>stmt:reset()</code></a> to reset the virtual 
+<a href="#stmt_step"><code>stmt:step()</code></a> should not be called again on this statement 
+without first calling <a href="#stmt_reset"><code>stmt:reset()</code></a> to reset the virtual 
 machine back to the initial state.</p>
 </li>
 <li>
 <p><code>sqlite3.ROW</code>: this is returned each time a new row of data is ready for
 processing by the caller. The values may be accessed using the column
-access functions. <a href="lsqlite3.wiki.html#stmt_step"><code>stmt:step()</code></a> can be called again to 
+access functions. <a href="#stmt_step"><code>stmt:step()</code></a> can be called again to 
 retrieve the next row of data.</p>
 </li>
 <li>
 <p><code>sqlite3.ERROR</code>: a run-time error (such as a constraint violation) has
-occurred. <a href="lsqlite3.wiki.html#stmt_step"><code>stmt:step()</code></a> should not be called again. More 
-information may be found by calling <a href="lsqlite3.wiki.html#db_errmsg"><code>db:errmsg()</code></a>. A more 
+occurred. <a href="#stmt_step"><code>stmt:step()</code></a> should not be called again. More 
+information may be found by calling <a href="#db_errmsg"><code>db:errmsg()</code></a>. A more 
 specific error 
-code (can be obtained by calling <a href="lsqlite3.wiki.html#stmt_reset"><code>stmt:reset()</code></a>.</p>
+code (can be obtained by calling <a href="#stmt_reset"><code>stmt:reset()</code></a>.</p>
 </li>
 <li>
 <p><code>sqlite3.MISUSE</code>: the function was called inappropriately, perhaps 
 because the statement has already been finalized or a previous call to
-<a href="lsqlite3.wiki.html#stmt_step"><code>stmt:step()</code></a> has returned <code>sqlite3.ERROR</code> or 
+<a href="#stmt_step"><code>stmt:step()</code></a> has returned <code>sqlite3.ERROR</code> or 
 <code>sqlite3.DONE</code>.</p>
 </li>
 </ul>
@@ -1001,7 +1016,7 @@ because the statement has already been finalized or a previous call to
         stmt:urows()</pre>
 <p>Returns an function that iterates over the values of the result set of
 statement stmt. Each iteration returns the values for the current row.
-This is the prepared statement equivalent of <a href="lsqlite3.wiki.html#db_urows"><code>db:urows()</code></a>.</p>
+This is the prepared statement equivalent of <a href="#db_urows"><code>db:urows()</code></a>.</p>
 <p>
 </p>
 <h2><a name="stmt_last_insert_rowid">stmt:last_insert_rowid</a></h2>
@@ -1009,14 +1024,14 @@ This is the prepared statement equivalent of <a href="lsqlite3.wiki.html#db_urow
         stmt:last_insert_rowid()</pre>
 <p>This function returns the rowid of the most recent INSERT into the
 database corresponding to this statement. 
-See <a href="lsqlite3.wiki.html#db_last_insert_rowid"><code>db:last_insert_rowid()</code></a>.</p>
+See <a href="#db_last_insert_rowid"><code>db:last_insert_rowid()</code></a>.</p>
 <p>
 </p>
 <hr />
 <h1><a name="methods_for_callback_contexts">Methods for callback contexts</a></h1>
 <p>A callback context is available as a parameter inside the callback
-functions <a href="lsqlite3.wiki.html#db_create_aggregate"><code>db:create_aggregate()</code></a> and 
-<a href="lsqlite3.wiki.html#db_create_function"><code>db:create_function()</code></a>. It can be used
+functions <a href="#db_create_aggregate"><code>db:create_aggregate()</code></a> and 
+<a href="#db_create_function"><code>db:create_function()</code></a>. It can be used
 to get further information about the state of a query.</p>
 <p>
 </p>
@@ -1093,14 +1108,14 @@ in <code>err</code>. It returns nothing.</p>
 <pre>
         context:user_data()</pre>
 <p>Returns the userdata parameter given in the call to install the callback
-function (see <a href="lsqlite3.wiki.html#db_create_aggregate"><code>db:create_aggregate()</code></a> and 
-<a href="lsqlite3.wiki.html#db_create_function"><code>db:create_function()</code></a> for details).</p>
+function (see <a href="#db_create_aggregate"><code>db:create_aggregate()</code></a> and 
+<a href="#db_create_function"><code>db:create_function()</code></a> for details).</p>
 <p>
 </p>
 <hr />
 <h1><a name="methods_for_online_backup">Methods for Online Backup</a></h1>
 <p>A backup userdata is created using <code>backup = </code>
-<a href="lsqlite3.wiki.html#sqlite3_backup_init"><code>sqlite3.backup_init(...)</code></a>. It is then 
+<a href="#sqlite3_backup_init"><code>sqlite3.backup_init(...)</code></a>. It is then 
 used to step the backup, or inquire about its progress.</p>
 <p>
 </p>
